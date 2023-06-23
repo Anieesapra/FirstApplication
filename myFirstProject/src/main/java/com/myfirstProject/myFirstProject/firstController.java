@@ -64,9 +64,9 @@ public class firstController {
 	return student;
 	}
 	@PostMapping("/deleteStudentbyid/{id}")
-	public Student deleteStudent(@PathVariable String id) {
+	public boolean deleteStudent(@PathVariable String id) {
 		System.out.println("delete kr rha hu ye id ke saath" + id);
-	Student student=studentService.deleteStudentById(id);
-	return student;
+	return studentService.deleteStudentById(id);
+	
 	}
 }

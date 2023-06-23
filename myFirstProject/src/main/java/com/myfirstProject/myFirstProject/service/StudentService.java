@@ -9,5 +9,5 @@ public interface StudentService {
 
 Student getStudentByID(String id );
 Student updateStudentById(String id, String updateColumn);
-Student deleteStudentById(String id);
+boolean deleteStudentById(String id);
 }

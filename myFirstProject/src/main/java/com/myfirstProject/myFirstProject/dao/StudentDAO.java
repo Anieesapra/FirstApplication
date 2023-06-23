@@ -10,5 +10,5 @@ public interface StudentDAO {
 	Student getStudentByID(String id );
 	
 	Student updateStudentById(String id, String updatecolumn);
-	Student deleteStudentById(String id);
+	boolean deleteStudentById(String id);
 }

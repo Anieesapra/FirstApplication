@@ -93,7 +93,7 @@ public Student updateStudentById(String id, String updateColumn ) {
 	return student;
 }
 @Override
-	public Student deleteStudentById(String id) {
+	public boolean deleteStudentById(String id) {
 		
 	PreparedStatement ps = null;
 	try {
@@ -106,23 +106,7 @@ public Student updateStudentById(String id, String updateColumn ) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	
-	String query= "select * from student where PersonID="+id;
-	Statement st;
-	Student student=new Student();
-	try {
-		st = demo.getsqlConnection().createStatement();
-		ResultSet rs = st.executeQuery(query);
-		rs.next();
-		student.setId(rs.getInt("PersonID"));
-		student.setName(rs.getString("FirstName"));
-	    student.setStandard(rs.getString("LastName"));
-		student.setSection(rs.getString("Address"));
-		student.setIssueDate(rs.getString("City"));
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	return student;
+  
+	return true;
 }
 }
