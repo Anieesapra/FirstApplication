@@ -13,7 +13,12 @@
   <h1>welcome to my first application</h1>
   <h1> trippy hu maine</h1>
  
-  <h1 th:text="${professionList}"></h1>
+  <h1 th:text="${book.id}"></h1>
   
+  <h1 th:text="${book.publisher}"></h1>
+   <h1>Book Name is :</h1><h1 th:text="${book.name}">book Name is </h1>
+ <h1 th:text="${book.doi}"></h1>
+ 
+ 
 </body>
 </html>

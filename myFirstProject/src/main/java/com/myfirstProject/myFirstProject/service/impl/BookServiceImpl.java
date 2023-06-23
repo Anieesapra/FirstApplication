@@ -1,5 +1,7 @@
 package com.myfirstProject.myFirstProject.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,6 +36,12 @@ public class BookServiceImpl  implements BookService{
 	public Books updateBookById(String id, String updateColumn) {
 		// TODO Auto-generated method stub
 		return bookDAO.updateBookById(id, updateColumn);
+	}
+
+	@Override
+	public List<Books> getBooksBylist(String id) {
+		// TODO Auto-generated method stub
+		return bookDAO.getBooksBylist(id);
 	}
 
 }

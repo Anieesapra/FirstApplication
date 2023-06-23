@@ -1,5 +1,7 @@
 package com.myfirstProject.myFirstProject;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,13 +36,13 @@ public class firstController {
 
 	@GetMapping("/aniee")
 	public ModelAndView getHello(Model model) {
-	    ModelAndView modelAndView = new ModelAndView("hello");
-	    modelAndView.addObject("professionList", "saksham");
-	    return modelAndView;
+		ModelAndView modelAndView = new ModelAndView("hello");
+		modelAndView.addObject("professionList", "saksham");
+		return modelAndView;
 	}
 
 //  saving books and student in post request
-	@RequestMapping(value="/posthello",method=RequestMethod.POST)
+	@RequestMapping(value = "/posthello", method = RequestMethod.POST)
 	public void puthello(@RequestBody RequestJSON json) {
 
 		bookService.save(json.getBook());
@@ -49,21 +51,28 @@ public class firstController {
 	}
 
 	// get book requqest based on ID
-	@RequestMapping(value="/getbooks/{id}",method=RequestMethod.GET)
-	
-	public Books getBooks(@PathVariable String id)
+	@RequestMapping(value = "/getbooks/{id}", method = RequestMethod.GET)
+
+	public ModelAndView getBooks(@PathVariable String id)
 
 	{
 		Books book = bookService.getBooksByID(id);
-		return book;
+		ModelAndView modelAndView = new ModelAndView("bookpage", "book", book);
+
+		return modelAndView;
+
 	}
 
-	@GetMapping("/getstudents/{id}")
-	public Student getStudent(@PathVariable String id)
+	@RequestMapping(value = "/getstudents/{id}", method = RequestMethod.GET)
+
+	
+	public ModelAndView getStudent(@PathVariable String id)
 
 	{
 		Student student = studentService.getStudentByID(id);
-		return student;
+		ModelAndView modelAndView = new ModelAndView("studentpage", "student", student);
+
+		return modelAndView;
 	}
 
 	@PostMapping("/updatebookbyid/{id}")
@@ -86,4 +95,14 @@ public class firstController {
 		return studentService.deleteStudentById(id);
 
 	}
+	
+	@RequestMapping(value="bookslist/{id}",method=RequestMethod.GET)
+	public ModelAndView getBooksByList(@PathVariable String id)
+	{
+		List<Books> bookList=bookService.getBooksBylist(id);
+		ModelAndView modelAndView = new ModelAndView("booklist", "book", bookList);
+		return modelAndView;
+	}
+	
+	
 }

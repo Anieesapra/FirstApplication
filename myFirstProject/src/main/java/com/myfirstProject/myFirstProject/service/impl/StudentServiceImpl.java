@@ -26,7 +26,7 @@ public class StudentServiceImpl implements StudentService{
 		return studentDAO.updateStudentById(id, updateColumn);
 	}
 @Override
-public Student deleteStudentById(String id) {
+public boolean deleteStudentById(String id) {
 	return studentDAO.deleteStudentById(id);
 }
 }
