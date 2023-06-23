@@ -1,0 +1,10 @@
+public static void main(String[] args) throws JsonProcessingException {
+		ObjectMapper mapper=new ObjectMapper();
+		RequestJSON json=new RequestJSON();
+		Books book=new Books(1, "saksham", "saksham", "saksham", "saksham");
+		Student student=new Student(1, "aniee",  "aniee",  "aniee",  "aniee");
+		json.setBook(book);
+		json.setStudent(student);
+		String str=mapper.writeValueAsString(json);
+		System.out.println(str);
+	}
