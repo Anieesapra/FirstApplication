@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -109,4 +111,28 @@ public Student updateStudentById(String id, String updateColumn ) {
   
 	return true;
 }
+@Override
+public List<Student> getStudentBylist(String id) {
+	String query = "select * from student where PersonID=" + id;
+	Statement st;
+	List<Student> listOFStudent = new ArrayList<>();
+	try {
+		st = demo.getsqlConnection().createStatement();
+		ResultSet rs = st.executeQuery(query);
+		while (rs.next()) {
+			Student student = new Student();
+			student.setId(rs.getInt("PersonID"));
+			student.setName(rs.getString("FirstName"));
+		    student.setStandard(rs.getString("LastName"));
+			student.setSection(rs.getString("Address"));
+			student.setIssueDate(rs.getString("City"));
+			listOFStudent.add(student);
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return listOFStudent;
+}
+
 }

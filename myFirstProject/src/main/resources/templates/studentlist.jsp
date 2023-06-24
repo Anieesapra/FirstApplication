@@ -40,14 +40,22 @@
 					</tr>
 				</thead>
 				<tbody>
-					
-					<tr class="table-danger">
-					   <tr th:each="book : ${book}">
-                     <td><span th:text="${book.id}"> Author </span></td>
-            <td><span th:text="${book.name}"> Title </span></td>
-            <td><span th:text="${book.doi}"> Author </span></td>
-             <td><span th:text="${book.publisher}"> Author </span></td>
+					<tr>
+						<td>
+							1
+						</td>
+						<td>
+						
+						</td>
+						<td>
+							sapra
+						</td>
+						<td>
+							sector
+						</td>
 					</tr>
+					
+					
 				</tbody>
 			</table>
 		</div>

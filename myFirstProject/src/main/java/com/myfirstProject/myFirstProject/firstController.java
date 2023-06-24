@@ -41,6 +41,11 @@ public class firstController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/bookForm", method = RequestMethod.GET)
+	public ModelAndView getBookForm() {
+		return new ModelAndView("bookForm");
+	}
+
 //  saving books and student in post request
 	@RequestMapping(value = "/posthello", method = RequestMethod.POST)
 	public void puthello(@RequestBody RequestJSON json) {
@@ -52,7 +57,6 @@ public class firstController {
 
 	// get book requqest based on ID
 	@RequestMapping(value = "/getbooks/{id}", method = RequestMethod.GET)
-
 	public ModelAndView getBooks(@PathVariable String id)
 
 	{
@@ -65,7 +69,6 @@ public class firstController {
 
 	@RequestMapping(value = "/getstudents/{id}", method = RequestMethod.GET)
 
-	
 	public ModelAndView getStudent(@PathVariable String id)
 
 	{
@@ -95,14 +98,19 @@ public class firstController {
 		return studentService.deleteStudentById(id);
 
 	}
-	
-	@RequestMapping(value="bookslist/{id}",method=RequestMethod.GET)
-	public ModelAndView getBooksByList(@PathVariable String id)
-	{
-		List<Books> bookList=bookService.getBooksBylist(id);
+
+	@RequestMapping(value = "bookslist/{id}", method = RequestMethod.GET)
+	public ModelAndView getBooksByList(@PathVariable String id) {
+		List<Books> bookList = bookService.getBooksBylist(id);
 		ModelAndView modelAndView = new ModelAndView("booklist", "book", bookList);
 		return modelAndView;
 	}
-	
-	
+
+	@RequestMapping(value = "studentslist/{id}", method = RequestMethod.GET)
+	public ModelAndView getStudentByList(@PathVariable String id) {
+		List<Student> studentList = studentService.getStudentBylist(id);
+		ModelAndView modelAndView = new ModelAndView("studentlist", "student", studentList);
+		return modelAndView;
+	}
+
 }

@@ -1,5 +1,7 @@
 package com.myfirstProject.myFirstProject.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,5 +30,10 @@ public class StudentServiceImpl implements StudentService{
 @Override
 public boolean deleteStudentById(String id) {
 	return studentDAO.deleteStudentById(id);
+}
+@Override
+public List<Student> getStudentBylist(String id) {
+	// TODO Auto-generated method stub
+	return studentDAO.getStudentBylist(id);
 }
 }
