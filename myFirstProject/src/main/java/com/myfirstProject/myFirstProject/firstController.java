@@ -1,8 +1,9 @@
 package com.myfirstProject.myFirstProject;
 
 import java.util.List;
-
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,12 +49,23 @@ public class firstController {
 	}
 
 //  saving books and student in post request
-	@RequestMapping(value = "/posthello", method = RequestMethod.POST)
-	public void puthello(@RequestBody RequestJSON json) {
-
-		bookService.save(json.getBook());
-		studentService.save(json.getStudent());
-
+	@RequestMapping(value = "/posthello", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = {
+			MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	public ModelAndView puthello(@RequestParam String id, @RequestParam String name, @RequestParam String publisher, @RequestParam String doi, @RequestParam String studentid, @RequestParam String studentname, @RequestParam String standard, @RequestParam String section) {
+		Books book = new Books();
+		book.setId(Integer.parseInt(id));
+		book.setName(name);
+		book.setPublisher(publisher);
+		book.setDoi(doi);
+		bookService.save(book);
+		Student student=new Student();
+		student.setId(Integer.parseInt(studentid));
+		student.setName(studentname);
+		student.setStandard(standard);
+		student.setSection(section);
+		 studentService.save(student);
+		ModelAndView view = new ModelAndView("success");
+		return view;
 	}
 
 	// get book requqest based on ID
