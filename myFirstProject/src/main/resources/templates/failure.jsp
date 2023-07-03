@@ -12,13 +12,19 @@
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
-
+>
+     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
    
 
  
 </head>
 <body>
   <h1>Authentication failed</h1>
+  
+    <script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/scripts.js}"></script>
  
 </body>
 </html>

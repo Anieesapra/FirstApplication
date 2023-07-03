@@ -35,6 +35,6 @@
     <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/scripts.js}"></script>
-  <a href="bookForm">Student</a>
+  <a href="bookForm" class="btn btn-primary">Student</a>
 </body>
 </html>

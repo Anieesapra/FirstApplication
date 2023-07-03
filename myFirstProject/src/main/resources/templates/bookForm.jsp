@@ -4,25 +4,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
+ 
   <form method="post" action="/posthello" enctype="application/json">
   <h1>Enter details for book</h1>
-        bookid : <input type="text" name="id" />
-        bookName : <input type="text" name="name" /> 
-         bookpublisher : <input type="text" name="publisher" /> 
-          bookdoi : <input type="text" name="doi" /> 
-        
-        
-        <h1>Enter details for Student</h1>
-          Studentid : <input type="text" name="studentid" />
-        studentName : <input type="text" name="studentname" /> 
-         studentStandard : <input type="text" name="standard" /> 
-          studentSection : <input type="text" name="section" /> 
-        <input type="submit" />
-    </form>
+  <label>
+    Book ID:
+    <input type="text" name="id" />
+  </label>
+  <br>
+  <label>
+    Book Name:
+    <input type="text" name="name" />
+  </label>
+  <br>
+  <label>
+    Book Publisher:
+    <input type="text" name="publisher" />
+  </label>
+  <br>
+  <label>
+    Book DOI:
+    <input type="text" name="doi" />
+  </label>
+  <br>
+  <h1>Enter details for Student</h1>
+  <label>
+    Student ID:
+    <input type="text" name="studentid" />
+  </label>
+  <br>
+  <label>
+    Student Name:
+    <input type="text" name="studentname" />
+  </label>
+  <br>
+  <label>
+    Student Standard:
+    <input type="text" name="standard" />
+  </label>
+  <br>
+  <label>
+    Student Section:
+    <input type="text" name="section" />
+  </label>
+  <br>
+  <input type="submit" />
+</form>
+  
 
+    <script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/scripts.js}"></script>
 
  
 </body>
